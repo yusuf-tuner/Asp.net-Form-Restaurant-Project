@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBRestaurantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBLBasket">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Piece" Type="int" />
+    <Property Name="Price" Type="money" />
+    <Property Name="TableID" Type="nvarchar" MaxLength="20" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBLCategori">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" />
+    <Property Name="Desk" Type="int" />
+  </EntityType>
+  <EntityType Name="TBLNote">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="250" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBLOrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" />
+    <Property Name="Price" Type="money" />
+    <Property Name="Piece" Type="int" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Payment" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TBLProduct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" />
+    <Property Name="CategoriesID" Type="int" />
+    <Property Name="Price" Type="money" />
+    <Property Name="SubContent" Type="nvarchar" MaxLength="200" />
+    <Property Name="Images" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="30" />
+    <Property Name="Password" Type="nvarchar" MaxLength="30" />
+    <Property Name="Authority" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="DBRestaurantModelStoreContainer">
+    <EntitySet Name="TBLBasket" EntityType="Self.TBLBasket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLCategori" EntityType="Self.TBLCategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLNote" EntityType="Self.TBLNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLOrderDetail" EntityType="Self.TBLOrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLProduct" EntityType="Self.TBLProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLTable" EntityType="Self.TBLTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLUser" EntityType="Self.TBLUser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
